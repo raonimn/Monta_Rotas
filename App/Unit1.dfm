@@ -40,7 +40,7 @@ object Form1: TForm1
     PolygonLabel.Font.Height = -16
     PolygonLabel.Font.Name = 'Arial'
     PolygonLabel.Font.Style = []
-    TabOrder = 2
+    TabOrder = 1
     Version = '2.9.7.0'
     OnWebGMapsError = gmap1WebGMapsError
   end
@@ -62,10 +62,10 @@ object Form1: TForm1
         Caption = 'Posi'#231#227'o'
       end
       item
-        Caption = 'Tempo'
+        Caption = 'Tempo (s)'
       end
       item
-        Caption = 'Distancia'
+        Caption = 'Distancia (m)'
       end>
     MultiSelect = True
     RowSelect = True
@@ -81,15 +81,20 @@ object Form1: TForm1
     Width = 385
     Height = 89
     Lines.Strings = (
-      '01_PE_RCE_01'#9'EE LUIZ DELGADO RECIFE PE'
-      '01_PE_RCE_01'#9'ESCOLA JOAO BARBALHO RECIFE PE'
-      '01_PE_RCE_01'#9'CEJA VALDEMAR DE OLIVEIRA RECIFE PE'
-      '01_PE_RCE_01'#9'EE CONEGO ROCHAEL DE MEDEIROS RECIFE PE'
-      '01_PE_RCE_01'#9'EE SYLVIO RABELLO RECIFE PE'
-      '01_PE_RCE_01'#9'EREM ANIBAL FERNANDES RECIFE PE'
-      '01_PE_RCE_01'#9'EREM SIZENANDO SILVEIRA RECIFE PE')
+      
+        '01_PE_RCE_01'#9'CASE ARCOVERDE AVENIDA DOM PEDRO II, S/N - ARCOVERD' +
+        'E'
+      
+        '01_PE_RCE_01'#9'COLONIA PENAL FEMININA DE BUIQUE RUA AURORA LAERTE ' +
+        'CAVALCANTI, S/N - BUIQUE'
+      
+        '01_PE_RCE_01'#9'PRESIDIO ADVOGADO BRITO ALVES RUA NOVA PROJETADA, S' +
+        '/N - ARCOVERDE'
+      
+        '01_PE_RCE_01'#9'PRESIDIO DESEMBARGADOR AUGUSTO DUQUE LOTEAMENTO NOV' +
+        'O PONTAL, S/N - PESQUEIRA')
     ScrollBars = ssBoth
-    TabOrder = 1
+    TabOrder = 4
   end
   object btn1: TButton
     Left = 464
@@ -106,7 +111,23 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = 'Salvar'
-    TabOrder = 4
+    TabOrder = 2
     OnClick = btn2Click
+  end
+  object con1: TUniConnection
+    ProviderName = 'SQLite'
+    Database = 'D:\Delphi\Monta_rotas\dbENEM2018.db'
+    LoginPrompt = False
+    Left = 384
+    Top = 128
+  end
+  object unqry1: TUniQuery
+    Connection = con1
+    Left = 384
+    Top = 184
+  end
+  object sqltnprvdr1: TSQLiteUniProvider
+    Left = 384
+    Top = 80
   end
 end
