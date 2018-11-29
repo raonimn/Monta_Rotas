@@ -52,12 +52,13 @@ var
   rota: string;
   qt: Integer;
 begin
-  Aorigem[0] := '7°D Sup - Recife PE';                               //RCE
-  Aorigem[1] := '4º BPM - BATALHÃO BARRETO DE MENEZES - Caruaru PE'; //CRU
-  Aorigem[2] := '71º BIMtz - Garanhuns PE';                          //GRS
-  Aorigem[3] := '3° Batalhão da Polícia Militar - ARCOVERDE PE';     //AVZ
-  Aorigem[4] := '8°BPM Salgueiro - PE';                              //SGP
-  Aorigem[5] := '72º BIMtz - Petrolina PE';                          //PNZ
+  mmo1.Clear;
+  Aorigem[0] := 'Av. Gen. San Martin, 1083 - Prado, Recife - PE, 50630-971';                               //RCE
+  Aorigem[1] := 'R. Padre Manoel da Nóbrega - São Francisco, Caruaru - PE, 55008-540'; //CRU
+  Aorigem[2] := 'R. Amauri de Medeiros, 32 - A - Heliópolis, Garanhuns - PE, 55295-430';                          //GRS
+  Aorigem[3] := 'Av. José Bonifácio, 632 - São Cristóvão, Arcoverde - PE, 56512-971';     //AVZ
+  Aorigem[4] := 'R. Otávio Leitinho, 159 - Centro, Salgueiro - PE, 56000-000';                              //SGP
+  Aorigem[5] := 'Av. das Nações, 116 - Gercino Coelho, Petrolina - PE, 56302-360';                          //PNZ
   lv1.Clear;
   percorre := TStringList.Create;
   percorre.StrictDelimiter := true;
@@ -145,6 +146,11 @@ begin
       item.SubItems.Add(IntToStr(gmap1.Directions[0].Legs[qt - 1].Duration));
       item.SubItems.Add(IntToStr(gmap1.Directions[0].Legs[qt - 1].Distance));
 
+    end
+    else
+    begin
+      showmessage('Rota ' + distribuidora + ' não foi calculada corretamente');
+      mmo1.Lines.Add(distribuidora);
     end;
     eSalvar;
   end;
@@ -156,7 +162,6 @@ begin
 //Traça a rota
 
   distribuidoras.Free;
-  mmo1.Clear;
   pontos.Free;
 end;
 
